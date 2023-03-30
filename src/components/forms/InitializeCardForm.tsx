@@ -3,9 +3,12 @@ import React from "react";
 import { Button } from "../ui/Button";
 import { useStudioActions } from "~/context/studio/studioContext";
 import { api } from "~/utils/api";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 export const InitializeCardForm = () => {
   const action = useStudioActions();
+  const router = useRouter();
   const { mutate, isLoading } = api.card.create.useMutation();
 
   const formRef = React.useRef<HTMLFormElement>(null);
@@ -21,6 +24,7 @@ export const InitializeCardForm = () => {
     });
 
     mutate(payload);
+    router.push("/studio");
   };
 
   return (
@@ -54,9 +58,11 @@ export const InitializeCardForm = () => {
         <Button iconStart={<Save />} type="submit" loading={isLoading}>
           Save
         </Button>
-        <Button variant="secondary" type="reset">
-          Cancel
-        </Button>
+        <Link href="/studio">
+          <Button variant="secondary" type="reset">
+            Cancel
+          </Button>
+        </Link>
       </div>
     </form>
   );

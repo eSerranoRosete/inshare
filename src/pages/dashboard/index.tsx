@@ -48,12 +48,14 @@ const DashboardPage = () => {
           }
           actions={
             <div className="flex gap-3">
-              <Button
-                variant="secondary"
-                onClick={() => console.log("confetti")}
-              >
-                View All
-              </Button>
+              <Link href="/studio?view=view-all">
+                <Button
+                  variant="secondary"
+                  onClick={() => console.log("confetti")}
+                >
+                  View All
+                </Button>
+              </Link>
               <Link href="/studio?view=create">
                 <Button variant="primary" iconEnd={<PlusCircle />}>
                   Create Card
