@@ -1,14 +1,13 @@
 import React from "react";
-import { Navigation } from "../nav/Navigation";
 
 interface IFProps {
   children: React.ReactNode;
+  omitNavigation?: boolean;
 }
-export const PageLayout = ({ children }: IFProps) => {
+export const PageLayout = ({ children, omitNavigation }: IFProps) => {
   return (
     <div>
-      <Navigation />
-      <main className="container m-auto h-full w-full p-4">{children}</main>
+      <main className="container p-6">{children}</main>
     </div>
   );
 };

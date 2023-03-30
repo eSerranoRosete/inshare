@@ -7,28 +7,33 @@ import { UserDropdown } from "./UserDropdown";
 import Link from "next/link";
 import { CubeIcon } from "@heroicons/react/24/solid";
 
-import { config } from "~/config/AppConfig";
+import { IFNavItem } from "~/config/AppConfig";
 import { useRouter } from "next/router";
+import { Logo } from "../ui/logo";
 
-export const Navigation = () => {
+interface IFProps {
+  navItems: IFNavItem[];
+  logoHref: string;
+  navActions?: React.ReactNode;
+}
+export const Navigation = ({ navItems, navActions, logoHref }: IFProps) => {
   const router = useRouter();
   const currentPage = router.pathname.split("/")[1];
 
   const actions = useAppActions();
 
   return (
-    <div className="container m-auto p-4">
+    <div className="container">
       <nav className="flex items-center justify-between lg:justify-start">
         <Link
           onClick={() => actions.setCurrentPage("Home")}
-          href="/dashboard"
-          className="flex items-center gap-2 font-semibold lg:mr-20"
+          href={logoHref}
+          className="lg:mr-20"
         >
-          <CubeIcon className="w-6" />
-          <span>Inshare</span>
+          <Logo />
         </Link>
         <div className="flex items-center lg:grow">
-          {config.navigation.map((item, i) => (
+          {navItems.map((item, i) => (
             <NavButton
               active={currentPage === item.alias}
               onClick={() => actions.setCurrentPage(item.alias)}
@@ -38,9 +43,7 @@ export const Navigation = () => {
             />
           ))}
         </div>
-        <div className="flex items-center gap-6">
-          <UserDropdown />
-        </div>
+        {navActions}
       </nav>
     </div>
   );

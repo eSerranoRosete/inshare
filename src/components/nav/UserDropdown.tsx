@@ -9,8 +9,11 @@ import { useAuth } from "@clerk/nextjs";
 import { Dialog } from "~/components/ui/Dialog";
 import { useAppActions } from "~/context/context";
 import { Settings, LogOut } from "lucide-react";
+import { useRouter } from "next/router";
 
 export const UserDropdown = () => {
+  const router = useRouter();
+
   const [isOpen, setIsOpen] = useState(false);
   const { signOut } = useAuth();
   const actions = useAppActions();

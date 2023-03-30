@@ -1,11 +1,12 @@
+import { AppShell } from "~/components/layout/AppShell";
 import { PageHeader } from "~/components/layout/PageHeader";
 import { PageLayout } from "~/components/layout/PageLayout";
 
 const SettingsPage = () => {
   return (
-    <PageLayout>
+    <AppShell>
       <PageHeader title="Account Settings" />
-    </PageLayout>
+    </AppShell>
   );
 };
 

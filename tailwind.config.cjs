@@ -4,6 +4,9 @@ const colors = require("tailwindcss/colors");
 const config = {
   content: ["./src/**/*.{js,ts,jsx,tsx}", "./app/**/*.{js,ts,jsx,tsx}"],
   theme: {
+    container: {
+      center: true,
+    },
     extend: {
       colors: {
         ...colors,

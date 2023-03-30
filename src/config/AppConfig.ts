@@ -1,5 +1,29 @@
-export const config = {
-  navigation: [
+export interface IFNavItem {
+  name: string;
+  alias: string;
+  path: string;
+}
+
+export interface IFAppConfig {
+  landingNavigation: IFNavItem[];
+  appNavigation: IFNavItem[];
+  appColors?: { [key: string]: string };
+}
+
+export const config: IFAppConfig = {
+  landingNavigation: [
+    {
+      name: "Home",
+      alias: "",
+      path: "/",
+    },
+    {
+      name: "About",
+      alias: "about",
+      path: "/about",
+    },
+  ],
+  appNavigation: [
     {
       name: "Dashboard",
       alias: "dashboard",
@@ -21,4 +45,11 @@ export const config = {
       path: "/interactions",
     },
   ],
+  appColors: {
+    primary: "#0f172a",
+    success: "#16a34a",
+    muted: "#78716c",
+    danger: "#e11d48",
+    accent: "#D9F368",
+  },
 };

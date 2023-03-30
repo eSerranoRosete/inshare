@@ -11,6 +11,9 @@ import { useDialog } from "~/hooks/useDialog";
 import { api } from "~/utils/api";
 import { ButtonModal } from "~/components/ui/ButtonModal";
 import { CreateCardForm } from "~/components/forms/CreateCardForm";
+import { AppShell } from "~/components/layout/AppShell";
+import { useAuth } from "@clerk/nextjs";
+import { LoadingPage } from "~/components/layout/LoadingPage";
 
 const tabs = [
   {
@@ -56,7 +59,7 @@ const DashboardPage = () => {
 
   return (
     <>
-      <PageLayout>
+      <AppShell>
         <PageHeader
           title={
             <>
@@ -68,7 +71,12 @@ const DashboardPage = () => {
           }
           actions={
             <div className="flex gap-3">
-              <Button variant="secondary">View All</Button>
+              <Button
+                variant="secondary"
+                onClick={() => console.log("confetti")}
+              >
+                View All
+              </Button>
               <ButtonModal
                 maxWidth="md"
                 title="Create New Card"
@@ -113,7 +121,7 @@ const DashboardPage = () => {
           </p>
           <Tabs tabs={tabs} />
         </div>
-      </PageLayout>
+      </AppShell>
     </>
   );
 };

@@ -1,5 +1,6 @@
 import { type AppType } from "next/app";
 import { ClerkProvider } from "@clerk/nextjs";
+import { config } from "~/config/AppConfig";
 
 import { api } from "~/utils/api";
 
@@ -9,9 +10,21 @@ import { AppProvider } from "~/context/context";
 
 const MyApp: AppType = ({ Component, pageProps }) => {
   return (
-    <ClerkProvider {...pageProps}>
+    <ClerkProvider
+      {...pageProps}
+      appearance={{
+        variables: {
+          colorPrimary: config.appColors?.primary,
+          colorDanger: config.appColors?.danger,
+          colorSuccess: config.appColors?.success,
+        },
+        elements: {
+          modalBackdrop: "backdrop-blur-sm",
+        },
+      }}
+    >
       <AppProvider>
-        <Component {...pageProps} className="debug-screens" />
+        <Component {...pageProps} />
       </AppProvider>
     </ClerkProvider>
   );
