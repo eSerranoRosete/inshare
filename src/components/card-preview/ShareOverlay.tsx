@@ -1,6 +1,11 @@
-import { IFUserData } from "~/context/AppTypes";
 
-export const ShareOverlay = ({ name, avatar, description }: IFUserData) => {
+interface IFProps {
+  name: string;
+  avatar: string;
+  description: string;
+
+}
+export const ShareOverlay = ({ name, avatar, description }: IFProps) => {
   return (
     <div
       id="qrOverlay"
