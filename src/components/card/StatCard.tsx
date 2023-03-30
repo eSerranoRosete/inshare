@@ -13,7 +13,7 @@ export const StatCard = ({
   statLabelIcon,
 }: IFProps) => {
   return (
-    <div className="group/card cursor-pointer rounded-lg border border-stone-300 px-6 py-8 antialiased transition-colors duration-150 hover:bg-primary hover:text-white">
+    <div className="group/card flex h-28 cursor-pointer flex-col justify-center rounded-lg border border-stone-300 px-6 py-3 antialiased shadow-sm transition-colors duration-150 hover:bg-primary hover:text-white">
       <h6 className="mb-2 text-sm font-medium text-stone-500 group-hover/card:text-stone-200">
         {title}
       </h6>

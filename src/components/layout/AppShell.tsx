@@ -1,7 +1,6 @@
 import { PageLayout } from "./PageLayout";
 import { Navigation } from "../nav/Navigation";
 import { config } from "~/config/AppConfig";
-import { UserDropdown } from "../nav/UserDropdown";
 import { UserButton } from "@clerk/nextjs";
 
 interface IFProps {
@@ -13,7 +12,7 @@ export const AppShell = ({ children }: IFProps) => {
       <Navigation
         logoHref="/dashboard"
         navItems={config.appNavigation}
-        navActions={<UserButton />}
+        navActions={<UserButton afterSignOutUrl="/" />}
       />
       {children}
     </PageLayout>

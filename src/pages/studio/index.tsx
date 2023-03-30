@@ -1,11 +1,18 @@
 import { AppShell } from "~/components/layout/AppShell";
 import { PageHeader } from "~/components/layout/PageHeader";
-import { PageLayout } from "~/components/layout/PageLayout";
+
+import { WithSidebarLayout } from "~/components/layout/WithSidebarLayout";
+import { StudioProvider } from "~/context/studio/studioContext";
 
 export default function index() {
   return (
-    <AppShell>
-      <PageHeader title="Studio" />
-    </AppShell>
+    <StudioProvider>
+      <AppShell>
+        <PageHeader title="Studio" />
+        <WithSidebarLayout>
+          <></>
+        </WithSidebarLayout>
+      </AppShell>
+    </StudioProvider>
   );
 }

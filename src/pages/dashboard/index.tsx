@@ -1,19 +1,16 @@
 import { PlusCircle } from "lucide-react";
-import { useRef, useState } from "react";
 import { Button } from "~/components/ui/Button";
 import { StatCard } from "~/components/card/StatCard";
-import { Dialog } from "~/components/ui/Dialog";
+
 import { PageHeader } from "~/components/layout/PageHeader";
-import { PageLayout } from "~/components/layout/PageLayout";
+
 import { Tabs } from "~/components/ui/Tabs";
-import { useDialog } from "~/hooks/useDialog";
 
 import { api } from "~/utils/api";
-import { ButtonModal } from "~/components/ui/ButtonModal";
-import { CreateCardForm } from "~/components/forms/CreateCardForm";
+
 import { AppShell } from "~/components/layout/AppShell";
-import { useAuth } from "@clerk/nextjs";
-import { LoadingPage } from "~/components/layout/LoadingPage";
+import { StatCardLoading } from "~/components/card/StatCardLoading";
+import Link from "next/link";
 
 const tabs = [
   {
@@ -35,27 +32,7 @@ const tabs = [
 ];
 
 const DashboardPage = () => {
-  const formRef = useRef<HTMLFormElement>(null);
-
-  const ctx = api.useContext();
-
-  const { mutate } = api.card.create.useMutation({
-    onSuccess: () => ctx.card.invalidate(),
-  });
   const { data, isLoading } = api.card.getAll.useQuery();
-
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const fields = formRef.current?.querySelectorAll("input");
-
-    let payload: any = {};
-
-    fields?.forEach((field) => {
-      payload[field.name] = field.value;
-    });
-
-    mutate(payload);
-  };
 
   return (
     <>
@@ -77,40 +54,29 @@ const DashboardPage = () => {
               >
                 View All
               </Button>
-              <ButtonModal
-                maxWidth="md"
-                title="Create New Card"
-                desc="Fill the details to create a new card."
-                buttonLabel="Create Card"
-                buttonProps={{
-                  variant: "primary",
-                  iconEnd: <PlusCircle />,
-                }}
-              >
-                {({ closeDialog }) => (
-                  <CreateCardForm
-                    onCancel={closeDialog}
-                    ref={formRef}
-                    onSubmit={onSubmit}
-                  />
-                )}
-              </ButtonModal>
+              <Link href="/studio?view=create">
+                <Button variant="primary" iconEnd={<PlusCircle />}>
+                  Create Card
+                </Button>
+              </Link>
             </div>
           }
         />
         <section className="mt-10">
           <div className="grid grid-cols-1 gap-5 lg:grid-cols-3 lg:gap-10">
-            {isLoading
-              ? "Loading..."
-              : data?.map((card) => (
-                  <StatCard
-                    key={card.id}
-                    title={card.title}
-                    value={card.org}
-                    statLabel="20%"
-                    statLabelIcon="up"
-                  />
-                ))}
+            {isLoading ? (
+              <StatCardLoading numberOfCards={3} />
+            ) : (
+              data?.map((card) => (
+                <StatCard
+                  key={card.id}
+                  title={card.displayTitle}
+                  value={card.org}
+                  statLabel="20%"
+                  statLabelIcon="up"
+                />
+              ))
+            )}
           </div>
         </section>
         <hr className="my-10" />

@@ -17,9 +17,8 @@ export const cardRouter = createTRPCRouter({
   create: privateProcedure
     .input(
       z.object({
-        firstName: z.string(),
-        lastName: z.string(),
-        title: z.string(),
+        displayName: z.string(),
+        displayTitle: z.string(),
         org: z.string(),
       })
     )
@@ -27,9 +26,8 @@ export const cardRouter = createTRPCRouter({
       const card = await ctx.prisma.card.create({
         data: {
           authorId: ctx.userId,
-          firstName: input.firstName,
-          lastName: input.lastName,
-          title: input.title,
+          displayName: input.displayName,
+          displayTitle: input.displayTitle,
           org: input.org,
         },
       });

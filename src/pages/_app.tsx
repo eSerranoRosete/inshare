@@ -17,6 +17,7 @@ const MyApp: AppType = ({ Component, pageProps }) => {
           colorPrimary: config.appColors?.primary,
           colorDanger: config.appColors?.danger,
           colorSuccess: config.appColors?.success,
+          borderRadius: "0.2rem",
         },
         elements: {
           modalBackdrop: "backdrop-blur-sm",

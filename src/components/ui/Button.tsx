@@ -1,6 +1,7 @@
 import type { HTMLAttributes } from "react";
 import classNames from "classnames";
 import React from "react";
+import { LoadingSpiner } from "../layout/LoadingSpiner";
 
 export interface IFProps extends HTMLAttributes<HTMLButtonElement> {
   variant?: "primary" | "secondary";
@@ -8,6 +9,7 @@ export interface IFProps extends HTMLAttributes<HTMLButtonElement> {
   iconStart?: React.ReactElement;
   iconEnd?: React.ReactElement;
   type?: "button" | "submit" | "reset";
+  loading?: boolean;
 }
 export const Button = ({
   children,
@@ -16,6 +18,7 @@ export const Button = ({
   iconStart,
   iconEnd,
   type,
+  loading,
   ...props
 }: IFProps) => {
   return (
@@ -34,9 +37,14 @@ export const Button = ({
         size === "lg" && "text-lg"
       )}
     >
-      {iconStart && React.cloneElement(iconStart, { className: "w-5" })}
+      {!loading &&
+        iconStart &&
+        React.cloneElement(iconStart, { className: "w-4 h-4" })}
+      {loading && <LoadingSpiner />}
       {children}
-      {iconEnd && React.cloneElement(iconEnd, { className: "w-5" })}
+      {!loading &&
+        iconEnd &&
+        React.cloneElement(iconEnd, { className: "w-4 h-4" })}
     </button>
   );
 };
