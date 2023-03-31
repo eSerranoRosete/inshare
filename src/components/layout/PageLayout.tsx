@@ -7,7 +7,7 @@ interface IFProps {
 export const PageLayout = ({ children, omitNavigation }: IFProps) => {
   return (
     <div>
-      <main className="container p-6">{children}</main>
+      <main className="max-w-8xl m-auto w-full p-6">{children}</main>
     </div>
   );
 };

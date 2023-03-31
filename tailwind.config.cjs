@@ -1,4 +1,5 @@
 const colors = require("tailwindcss/colors");
+const defaultTheme = require("tailwindcss/defaultTheme");
 
 /** @type {import('tailwindcss').Config} */
 const config = {
@@ -15,6 +16,10 @@ const config = {
         muted: "#78716c",
         danger: "#e11d48",
         accent: "#D9F368",
+      },
+      maxWidth: {
+        ...defaultTheme.maxWidth,
+        "8xl": "1536px",
       },
     },
   },

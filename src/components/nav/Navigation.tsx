@@ -23,7 +23,7 @@ export const Navigation = ({ navItems, navActions, logoHref }: IFProps) => {
   const actions = useAppActions();
 
   return (
-    <div className="container">
+    <div className="m-auto max-w-8xl">
       <nav className="flex items-center justify-between lg:justify-start">
         <Link
           onClick={() => actions.setCurrentPage("Home")}
