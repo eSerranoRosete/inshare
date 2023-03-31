@@ -1,5 +1,5 @@
 import * as Sidebar from "~/components/ui/Sidebar";
-import { useCallback, useRef } from "react";
+import { useCallback, useEffect, useRef } from "react";
 import { BasicDetailsForm } from "../../forms/BasicDetailsForm";
 import { api } from "~/utils/api";
 import { useRouter } from "next/router";
@@ -45,11 +45,17 @@ export const EditCardSidebar = () => {
     await editCard(payload);
   };
 
-  if (!data) return <>We couldn't find this card</>;
+  useEffect(() => {
+    if (data) {
+      actions.setDisplayName(data!.displayName);
+      actions.setDisplayTitle(data!.displayTitle);
+      actions.setOrgName(data!.org);
+    }
+  }, [data]);
 
-  actions.setDisplayName(data.displayName);
-  actions.setDisplayTitle(data.displayTitle);
-  actions.setOrgName(data.org);
+  if (!data) {
+    return <>No data...</>;
+  }
 
   return (
     <>
