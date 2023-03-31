@@ -7,27 +7,30 @@ import { api } from "~/utils/api";
 import "~/styles/globals.css";
 
 import { AppProvider } from "~/context/context";
+import { ThemeProvider } from "next-themes";
 
 const MyApp: AppType = ({ Component, pageProps }) => {
   return (
-    <ClerkProvider
-      {...pageProps}
-      appearance={{
-        variables: {
-          colorPrimary: config.appColors?.primary,
-          colorDanger: config.appColors?.danger,
-          colorSuccess: config.appColors?.success,
-          borderRadius: "0.2rem",
-        },
-        elements: {
-          modalBackdrop: "backdrop-blur-sm",
-        },
-      }}
-    >
-      <AppProvider>
-        <Component {...pageProps} />
-      </AppProvider>
-    </ClerkProvider>
+    <ThemeProvider attribute="class">
+      <ClerkProvider
+        {...pageProps}
+        appearance={{
+          variables: {
+            colorSuccess: config.appColors?.success,
+            colorTextOnPrimaryBackground: config.appColors?.light,
+            colorPrimary: config.appColors?.dark,
+            borderRadius: "0.2rem",
+          },
+          elements: {
+            modalBackdrop: "backdrop-blur-sm",
+          },
+        }}
+      >
+        <AppProvider>
+          <Component {...pageProps} />
+        </AppProvider>
+      </ClerkProvider>
+    </ThemeProvider>
   );
 };
 

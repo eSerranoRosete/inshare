@@ -46,10 +46,10 @@ export const config: IFAppConfig = {
     },
   ],
   appColors: {
-    primary: "#0f172a",
-    success: "#16a34a",
+    primary: "#C6EE4C",
+    onPrimary: "#101010",
     muted: "#78716c",
-    danger: "#e11d48",
-    accent: "#D9F368",
+    dark: "#101010",
+    light: "white",
   },
 };

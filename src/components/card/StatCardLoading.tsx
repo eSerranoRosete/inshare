@@ -9,7 +9,7 @@ export const StatCardLoading = ({ numberOfCards }: IFProps) => {
       {cardArray.map((i) => (
         <div
           key={i}
-          className="h-28 animate-pulse rounded-lg border border-stone-100 bg-gradient-to-br from-stone-50 to-stone-100 shadow-sm"
+          className="h-28 animate-pulse rounded-lg border border-dark/5 bg-gradient-to-br from-dark/5 to-dark/10 shadow-sm dark:border-light/5 dark:from-light/5 dark:to-light/10"
         ></div>
       ))}
     </>
