@@ -43,7 +43,7 @@ export const AllCardsView = () => {
               {card.org}
             </span>
           </div>
-          <div className="flex flex-col justify-between">
+          <div className="flex flex-col items-end justify-between">
             <span className="text-xs text-muted ">
               Last Edit: {getDaysSince(card.updatedAt)}
             </span>
