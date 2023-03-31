@@ -11,16 +11,16 @@ export const Card = () => {
   const state = useStudioContext();
 
   return (
-    <div className="relative m-auto max-w-md overflow-hidden rounded-b-3xl bg-white shadow-xl">
+    <div className="relative m-auto max-w-md overflow-hidden rounded-b-2xl rounded-t-2xl bg-white shadow-md">
       <div
         id="banner"
-        className="group/banner relative flex h-72 w-full items-end justify-center rounded-b-3xl bg-white shadow-lg"
+        className="group/banner relative flex h-72 w-full items-end justify-center rounded-b-2xl rounded-t-2xl bg-white shadow-md"
       >
         <div className="absolute right-0 bottom-0 hidden group-hover/banner:block"></div>
         <img
           src="/studio/banner.jpeg"
           alt="Cover Image"
-          className="h-full w-full rounded-b-3xl object-cover object-center"
+          className="h-full w-full rounded-b-2xl rounded-t-2xl object-cover object-center"
         />
       </div>
 

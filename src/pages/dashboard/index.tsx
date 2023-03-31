@@ -11,6 +11,7 @@ import { api } from "~/utils/api";
 import { AppShell } from "~/components/layout/AppShell";
 import { StatCardLoading } from "~/components/card/StatCardLoading";
 import Link from "next/link";
+import { NoCardsYet } from "~/components/NoCardsYet";
 
 const tabs = [
   {
@@ -48,7 +49,7 @@ const DashboardPage = () => {
           }
           actions={
             <div className="flex gap-3">
-              <Link href="/studio?view=view-all">
+              <Link href="/studio">
                 <Button
                   variant="secondary"
                   onClick={() => console.log("confetti")}
@@ -66,6 +67,11 @@ const DashboardPage = () => {
         />
         <section className="mt-10">
           <div className="grid grid-cols-1 gap-5 lg:grid-cols-3 lg:gap-10">
+            {data?.length === 0 && (
+              <div className="col-span-3">
+                <NoCardsYet />
+              </div>
+            )}
             {isLoading ? (
               <StatCardLoading numberOfCards={3} />
             ) : (
