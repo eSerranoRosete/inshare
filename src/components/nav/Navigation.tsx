@@ -9,7 +9,7 @@ import { CubeIcon } from "@heroicons/react/24/solid";
 
 import { IFNavItem } from "~/config/AppConfig";
 import { useRouter } from "next/router";
-import { Logo } from "../ui/logo";
+import { Logo } from "../ui/Logo";
 
 interface IFProps {
   navItems: IFNavItem[];

@@ -33,18 +33,18 @@ export const AllCardsView = () => {
       {data.map((card) => (
         <Link
           key={card.id}
-          className="flex cursor-pointer rounded-md border border-stone-100 bg-stone-50 p-4 shadow-sm"
+          className="flex cursor-pointer rounded-md bg-dark/5 p-4 shadow-sm dark:bg-light/5"
           href={`/studio?view=edit&id=${card.id}`}
         >
           <div className="grow truncate">
             <h1 className="text-xl font-semibold">{card.displayName}</h1>
             <h2 className="mb-1 text-sm">{card.displayTitle}</h2>
-            <span className="rounded-md bg-accent px-4 py-0.5 text-xs font-bold">
+            <span className="rounded-md bg-primary px-4 py-0.5 text-xs font-bold text-dark">
               {card.org}
             </span>
           </div>
           <div className="flex flex-col items-end justify-between">
-            <span className="text-xs text-muted ">
+            <span className="text-xs text-dark/50 dark:text-light/50 ">
               Last Edit: {getDaysSince(card.updatedAt)}
             </span>
             <Button

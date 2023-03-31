@@ -20,14 +20,15 @@ export const SidebarExpandable = ({ items }: IFProps) => {
             <>
               <Disclosure.Button
                 className={cn(
-                  "flex w-full justify-between rounded-lg bg-stone-50 px-4 py-2 text-left text-sm font-medium text-primary hover:bg-stone-100 focus:outline-none focus-visible:ring focus-visible:ring-primary focus-visible:ring-opacity-75",
-                  open && "bg-accent hover:bg-accent"
+                  "flex w-full justify-between rounded-lg bg-dark/5 px-4 py-2 text-left text-sm font-medium hover:bg-dark/10 focus:outline-none focus-visible:ring focus-visible:ring-dark focus-visible:ring-opacity-75 dark:bg-light/5 dark:hover:bg-light/10",
+                  open &&
+                    "bg-primary hover:bg-primary dark:bg-primary dark:text-dark dark:hover:bg-primary"
                 )}
               >
                 <span>{item.label}</span>
                 <ChevronUpIcon
                   className={cn(
-                    "h-5 w-5 text-primary transition-all",
+                    "h-5 w-5 transition-all",
                     open && "rotate-180 transform"
                   )}
                 />

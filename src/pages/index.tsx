@@ -1,10 +1,13 @@
 import { useAuth } from "@clerk/nextjs";
 import Link from "next/link";
 import { useRouter } from "next/router";
+
 import { LoadingPage } from "~/components/layout/LoadingPage";
 import { PageLayout } from "~/components/layout/PageLayout";
 import { Navigation } from "~/components/nav/Navigation";
 import { Button } from "~/components/ui/Button";
+import { ToggleTheme } from "~/components/ui/ToggleTheme";
+
 import { config } from "~/config/AppConfig";
 
 export default function index() {
@@ -23,6 +26,7 @@ export default function index() {
         navItems={config.landingNavigation}
         navActions={
           <div className="flex gap-2">
+            <ToggleTheme />
             <Link href="/sign-in">
               <Button size="sm">Sign in</Button>
             </Link>

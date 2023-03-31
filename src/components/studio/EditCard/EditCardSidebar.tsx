@@ -91,7 +91,7 @@ export const EditCardSidebar = () => {
                   desc="This action cannot be undone."
                   buttonLabel="Delete Card"
                   buttonProps={{
-                    variant: "primary",
+                    variant: "danger",
                     size: "sm",
                     iconStart: <Trash />,
                     className: "w-full",
@@ -100,20 +100,20 @@ export const EditCardSidebar = () => {
                   {({ closeDialog }) => (
                     <div className="mt-5 flex justify-end gap-2">
                       <Button
-                        iconStart={<Trash />}
-                        variant="primary"
-                        size="sm"
-                        onClick={() => handleDeleteCard(closeDialog)}
-                        loading={deleteLoading}
-                      >
-                        Delete
-                      </Button>
-                      <Button
                         variant="secondary"
                         size="sm"
                         onClick={closeDialog}
                       >
                         Cancel
+                      </Button>
+                      <Button
+                        iconStart={<Trash />}
+                        variant="danger"
+                        size="sm"
+                        onClick={() => handleDeleteCard(closeDialog)}
+                        loading={deleteLoading}
+                      >
+                        Delete
                       </Button>
                     </div>
                   )}

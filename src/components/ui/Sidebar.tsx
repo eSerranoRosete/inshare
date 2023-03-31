@@ -17,7 +17,7 @@ export const Header = ({ title, description }: IFHeaderProps) => {
   return (
     <div className="mb-5">
       <h6 className="mb-2 text-xl font-medium">{title}</h6>
-      <p className="text-sm text-stone-600">{description}</p>
+      <p className="text-sm text-dark/50 dark:text-light/50">{description}</p>
     </div>
   );
 };

@@ -91,7 +91,7 @@ const DashboardPage = () => {
         <hr className="my-10" />
         <div>
           <h3 className="text-lg font-bold">Recent interactions</h3>
-          <p className="mb-10 text-muted">
+          <p className="mb-10 text-dark/50 dark:text-light/80">
             Interactions recieved through your cards
           </p>
           <Tabs tabs={tabs} />

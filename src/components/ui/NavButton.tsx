@@ -1,6 +1,7 @@
 import Link from "next/link";
-import clsx from "clsx";
+
 import { cloneElement } from "react";
+import { cn } from "~/lib/utils";
 
 interface IFProps {
   label: string;
@@ -22,9 +23,11 @@ export const NavButton = ({
 }: IFProps) => {
   return (
     <Link
-      className={clsx(
-        "inline-flex items-center gap-2 rounded-md px-4 py-2 font-medium transition-all duration-100 ",
-        active ? "bg-accent" : "hover:bg-stone-100",
+      className={cn(
+        "inline-flex items-center gap-2 rounded-md px-4 py-2 font-medium transition-all duration-100",
+        active
+          ? "bg-dark text-light dark:bg-light dark:text-dark"
+          : "hover:bg-stone-100 dark:hover:bg-light/10",
         size === "xs" && "text-xs",
         size === "sm" && "text-sm",
         size === "md" && "text-base",

@@ -25,7 +25,9 @@ export default function index() {
           Studio
         </Link>
         {view && (
-          <span className="font-muted ml-3 text-lg text-muted">/{view}</span>
+          <span className="font-muted ml-3 text-lg text-dark/50 dark:text-light/50">
+            /{view}
+          </span>
         )}
       </div>
     ),

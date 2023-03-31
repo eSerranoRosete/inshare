@@ -30,7 +30,7 @@ export const Dialog = ({
         leaveFrom="opacity-100"
         leaveTo="opacity-0"
       >
-        <div className="fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm" />
+        <div className="fixed inset-0 bg-dark bg-opacity-30 backdrop-blur-sm dark:bg-light/5" />
       </Transition.Child>
 
       <div className="fixed inset-0 overflow-y-auto">
@@ -46,7 +46,7 @@ export const Dialog = ({
           >
             <HeadlessDialog.Panel
               className={classNames(
-                "w-full transform overflow-hidden rounded-lg bg-white p-6 text-left align-middle shadow-xl transition-all",
+                "w-full transform overflow-hidden rounded-lg bg-light p-6 text-left align-middle shadow-xl transition-all dark:bg-dark",
                 maxWidth === "md" && "max-w-md",
                 maxWidth === "lg" && "max-w-lg",
                 maxWidth === "xl" && "max-w-xl"
@@ -55,14 +55,14 @@ export const Dialog = ({
               {title && (
                 <HeadlessDialog.Title
                   as="h3"
-                  className="text-lg font-medium leading-6 text-gray-900"
+                  className="text-lg font-medium leading-6"
                 >
                   {title}
                 </HeadlessDialog.Title>
               )}
               {desc && (
                 <div className="mt-2">
-                  <p className="text-sm text-gray-500">{desc}</p>
+                  <p className="text-sm text-dark/50">{desc}</p>
                 </div>
               )}
               {children}

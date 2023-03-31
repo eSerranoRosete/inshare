@@ -11,14 +11,16 @@ interface IFProps {
 export const Tabs = ({ tabs }: IFProps) => {
   return (
     <Tab.Group>
-      <Tab.List className="flex w-fit divide-x divide-stone-300 overflow-hidden rounded-md border border-stone-300">
+      <Tab.List className="flex w-fit divide-x divide-dark/20 overflow-hidden rounded-md border border-dark/20 dark:divide-light/20 dark:border-light/20">
         {tabs.map((tab, i) => (
           <Tab
             key={i}
             className={({ selected }) =>
               classNames(
                 "px-4 py-2 text-sm outline-none focus:outline-none",
-                selected ? "bg-primary text-white" : "hover:bg-stone-100"
+                selected
+                  ? "bg-dark text-light dark:bg-light dark:text-dark"
+                  : "hover:bg-dark/5 dark:hover:bg-light/10"
               )
             }
           >
