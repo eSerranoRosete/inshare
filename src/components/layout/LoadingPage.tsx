@@ -1,5 +1,9 @@
+import { Logo } from "./Logo";
+
 export const LoadingPage = () => {
   return (
-    <div className="flex h-screen w-full items-center justify-center bg-primary"></div>
+    <div className="flex h-screen w-full items-center justify-center bg-primary">
+      <Logo className="text-onPrimary" />
+    </div>
   );
 };
