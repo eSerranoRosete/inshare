@@ -71,6 +71,7 @@ const DashboardPage = () => {
             ) : (
               data?.map((card) => (
                 <StatCard
+                  href={`/studio?view=edit&id=${card.id}`}
                   key={card.id}
                   title={card.displayTitle}
                   value={card.org}

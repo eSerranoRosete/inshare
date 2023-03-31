@@ -1,15 +1,21 @@
+import { IFStudioView } from "~/lib/AppTypes";
 import { Card } from "../card-preview/Card";
-import { ViewAllCards } from "./ViewAllCards";
+import { AllCardsView } from "./AllCardsView";
+import { EditCardView } from "./EditCard/EditCardView";
+import { CreateCardView } from "./CreateCard/CreateCardView";
 
 interface IFProps {
-  view: "create";
+  view: IFStudioView;
 }
 
 export const StudioMainContent = ({ view }: IFProps) => {
   switch (view) {
     case "create":
-      return <Card />;
+      return <CreateCardView />;
+
+    case "edit":
+      return <EditCardView />;
     default:
-      return <ViewAllCards />;
+      return <AllCardsView />;
   }
 };

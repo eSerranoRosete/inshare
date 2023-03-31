@@ -3,7 +3,7 @@ interface IFProps {
 }
 export const Sidebar = ({ children }: IFProps) => {
   return (
-    <div className="flex h-full w-full max-w-sm flex-col rounded-md bg-stone-50 p-4">
+    <div className="flex h-full w-full max-w-sm flex-col rounded-md p-4">
       {children}
     </div>
   );
